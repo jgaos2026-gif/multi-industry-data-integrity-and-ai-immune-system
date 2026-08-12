@@ -1,0 +1,7 @@
+name: Bug report
+description: Report an integrity bug
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: Details

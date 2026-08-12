@@ -1,0 +1,1 @@
+{"type":"object","required":["evidence_id","transaction_id","created_at","kind","digest","metadata"]}

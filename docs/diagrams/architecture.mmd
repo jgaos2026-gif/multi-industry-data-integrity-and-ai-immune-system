@@ -1,0 +1,6 @@
+flowchart TD
+  ingress[Ingress Gate] --> staging[Staging Zone]
+  staging --> verify[Triple Verification Engine]
+  verify --> certify[Certification]
+  certify --> trusted[Trusted Promotion]
+  verify --> quarantine[Quarantine]

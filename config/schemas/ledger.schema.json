@@ -1,0 +1,1 @@
+{"type":"object","required":["sequence","timestamp","event_type","transaction_id","component","actor","prior_hash","record_hash","state_digest","policy_version"]}

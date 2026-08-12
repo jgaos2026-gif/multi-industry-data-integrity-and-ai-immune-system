@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "max_ingress_bytes": 10485760,
+  "allowed_tool_actions": ["read", "verify", "classify"],
+  "require_sha3": true,
+  "nonce_ttl_seconds": 3600,
+  "mandatory_verifiers": ["content", "structure", "provenance"]
+}
