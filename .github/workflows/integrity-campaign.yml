@@ -1,5 +1,7 @@
 name: integrity-campaign
 on: [workflow_dispatch]
+permissions:
+  contents: read
 jobs:
   campaign:
     runs-on: ubuntu-latest
