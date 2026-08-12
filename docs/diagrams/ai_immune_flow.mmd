@@ -1,0 +1,8 @@
+flowchart TD
+  input[AI Input] --> stage[Stage]
+  stage --> classify[Classify]
+  classify --> verify[Verify]
+  verify --> policy[Policy]
+  policy --> allow[Allow]
+  policy --> quarantine[Quarantine]
+  policy --> deny[Deny]

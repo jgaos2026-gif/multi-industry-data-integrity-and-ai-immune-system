@@ -1,0 +1,7 @@
+{
+  "industry": "healthcare",
+  "policy_overlay": {
+    "strict_mode": true,
+    "evidence_retention_days": 365
+  }
+}

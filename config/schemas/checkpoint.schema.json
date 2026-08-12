@@ -1,0 +1,1 @@
+{"type":"object","required":["checkpoint_id","created_at","generation","source_state_digest","files_manifest","ledger_position","policy_version","checkpoint_digest"]}

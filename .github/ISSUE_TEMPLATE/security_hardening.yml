@@ -1,0 +1,7 @@
+name: Security hardening
+description: Propose defensive improvement
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal

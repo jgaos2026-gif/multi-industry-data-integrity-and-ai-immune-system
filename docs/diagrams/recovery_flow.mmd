@@ -1,0 +1,9 @@
+flowchart TD
+  detect[Detect] --> freeze[Freeze]
+  freeze --> quarantine[Quarantine]
+  quarantine --> evidence[Preserve Evidence]
+  evidence --> verify_cp[Verify Checkpoint]
+  verify_cp --> restore[Restore to Staging]
+  restore --> rever[Re-verify]
+  rever --> certify[Certify]
+  certify --> promote[Promote]

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["capsule_id", "transaction_id", "source_sovereign", "destination_sovereign", "payload_sha256", "payload_size", "created_at", "nonce", "sequence", "schema_version", "policy_version"],
+  "properties": {
+    "capsule_id": {"type": "string"},
+    "transaction_id": {"type": "string"},
+    "source_sovereign": {"type": "string"},
+    "destination_sovereign": {"type": "string"},
+    "relay": {"type": "string"},
+    "payload_sha256": {"type": "string"},
+    "payload_sha3_256": {"type": "string"},
+    "payload_size": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string"},
+    "expires_at": {"type": "string"},
+    "nonce": {"type": "string"},
+    "sequence": {"type": "integer", "minimum": 0},
+    "schema_version": {"type": "string"},
+    "policy_version": {"type": "string"},
+    "metadata": {"type": "object"}
+  }
+}
