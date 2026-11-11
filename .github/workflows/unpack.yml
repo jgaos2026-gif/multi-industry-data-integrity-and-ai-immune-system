@@ -1,0 +1,34 @@
+name: Unpack push-multi-industry-uif zip
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the fix zip and commit the resulting tree
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          unzip -l push-multi-industry-uif.zip
+          unzip -o push-multi-industry-uif.zip
+          WRAPPER=$(unzip -Z1 push-multi-industry-uif.zip | cut -d/ -f1 | sort -u)
+          if [ "$(printf '%s\n' "$WRAPPER" | wc -l)" -eq 1 ]; then
+            if [ -d "$WRAPPER/src" ] || [ -d "$WRAPPER/tests" ]; then
+              cp -a "$WRAPPER"/. .
+              rm -rf "$WRAPPER"
+            fi
+          fi
+          rm -f push-multi-industry-uif.zip
+          rm -f .github/workflows/unpack.yml
+          git add -A
+          echo "--- staged changes ---"
+          git status --porcelain
+          git diff --cached --name-only
+          [ "$(git diff --cached --name-only | wc -l)" -eq 4 ] || { echo "Unexpected number of staged files"; exit 1; }
+          for f in src/jga_uif/ai_immune/output_guard.py tests/adversarial/test_ai_immune.py push-multi-industry-uif.zip .github/workflows/unpack.yml; do git diff --cached --name-only | grep -qx "$f" || { echo "Missing expected staged file: $f"; exit 1; }; done
+          git commit -m "Fix OutputGuard to require independent verifier attestation"
+          git push
